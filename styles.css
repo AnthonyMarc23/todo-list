@@ -1,0 +1,107 @@
+* {
+  Font-family: "Open Sans";
+  Font-weight: 300;
+}
+
+body {
+  background: linear-gradient(to right, #f857a6, #ff5858);
+}
+
+h2 {
+  font-size: 2em;
+  margin: 0;
+}
+
+h4 {
+  margin-top: 0;
+}
+
+ol {
+  width: 92%;
+  margin: 0;
+}
+
+li {
+  margin: 0;
+  width: 100%;
+}
+
+a {
+  font-size: 2em;
+  text-decoration: none;
+}
+
+.align-right {
+  float: right;
+}
+
+.input-box {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 8px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #bbb; 
+}
+
+.input-button {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  background: #ff69b4;
+  color: white;
+  border: 0;
+  cursor: pointer;
+}
+
+.complete {
+  text-decoration: line-through;
+}
+
+.complete-button {
+  position: relative;
+  border: 1px solid #ff69b4;
+  border-radius: 5px;
+  padding: 3px 10px;
+  color: #ff69b4;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.complete-button:after {
+  content: "";
+  background: #ff69b4;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.complete-button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.todo-box {
+  width: 50%;
+  margin: 0 auto;
+  background: #eee;
+  border-radius: 10px;
+  padding: 15px;
+  Box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.clickable {
+  cursor: pointer;
+}

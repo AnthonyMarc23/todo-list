@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- Referencing the App module with the ngApp directive. -->
+<html ng-app="todoApp" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ngClass Demo</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <section ng-controller="TodoControl as todo" ng-class="" class="todo-box">
+    <h2>TODO List</h2>
+    <h4>A place to store the things you have to do!</h4>
+    <input type="text" class="input-box" id="filterSearch" placeholder="Filter your list"  ng-model="searchText">
+    <ol>
+      <li ng-repeat="todo in todo.list | filter:searchText track by $index" index="$index" ng-class="{ complete : todo.completed === true }" class="list-item"><button ng-if="!todo.completed" class="complete-button">Complete</button> {{ todo.task }} <i ng-click="todo.deleteAtEntry(index)" class="material-icons align-right clickable">close</i></p>
+    </ol>
+    <input type="text" class="input-box" id="addTask" placeholder="Add Your Todo" ng-model="input">
+    <button type="button" class="input-button">Add</button>
+  
+  </section>
+  
+  <!-- Linking our scripts. -->
+  <script src="https://code.angularjs.org/1.6.5/angular.min.js"></script>
+  <script src="module.js"></script>
+  <script src="todo-control.js"></script>
+</body>
+</html>
