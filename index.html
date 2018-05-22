@@ -21,7 +21,7 @@
       <p>
         <button ng-if="!itemTodo.completed" class="complete-button" ng-click="todo.markAsComplete($index);">Complete</button>
         <input ng-blur="todo.updateItem($index, itemTodo);" ng-class="{ complete : itemTodo.completed === true }" ng-model="itemTodo.task" type="text" class="input-invis">
-        <i ng-click="todo.deleteAtEntry($index, itemTodo);" class="material-icons align-right clickable">close</i>
+        <i ng-click="todo.deleteAtEntry(itemTodo);" class="material-icons align-right clickable">close</i>
       </p>
     </ol>
     <form ng-submit="todo.addItem(todo.taskTodo);">

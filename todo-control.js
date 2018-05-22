@@ -26,9 +26,12 @@ function TodoControl($timeout) {
     }
   ];
 
-  vm.deleteAtEntry = function(index, item) {
-    vm.list.splice(index, 1);
+  vm.deleteAtEntry = function(item) {  
+      let index = vm.list.indexOf(item);
+      console.log(index);
+      vm.list.splice(index, 1);  
   }
+
 
   // vm.taskTodo = "";
   vm.addItem = (item) => {
@@ -36,13 +39,9 @@ function TodoControl($timeout) {
       task: item,
       completed: false
     });
-    console.log(vm.taskTodo);
+    // console.log(vm.taskTodo);
     vm.taskTodo = "";
-    console.log(vm.taskTodo);
-  }
-
-  vm.clearForm = () => {
-    vm.taskTodo = "";
+    // console.log(vm.taskTodo);
   }
 
 
