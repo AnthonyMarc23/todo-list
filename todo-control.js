@@ -1,7 +1,7 @@
 "use strict";
 
 // Our controller
-function TodoControl() {
+function TodoControl($timeout) {
   const vm = this;
   vm.list = [
     {
@@ -25,18 +25,46 @@ function TodoControl() {
       completed: true,
     }
   ];
-  vm.toggleSelect = function(index) {
-    vm.list[index].completed = !vm.list[index].completed;
-  };
 
-  vm.deleteAtEntry = function(item) {
-    vm.list.splice(vm.list.indexOf(item), 1);
+  vm.deleteAtEntry = function(index, item) {
+    vm.list.splice(index, 1);
   }
 
+  // vm.taskTodo = "";
+  vm.addItem = (item) => {
+    vm.list.push({
+      task: item,
+      completed: false
+    });
+    console.log(vm.taskTodo);
+    vm.taskTodo = "";
+    console.log(vm.taskTodo);
+  }
+
+  vm.clearForm = () => {
+    vm.taskTodo = "";
+  }
+
+
+  vm.updateItem = (index, item) => {
+    // Removes an item based on the index
+    // Also inserts a brand new object based on what was submitted in the edit form
+    vm.list.splice(index, 1, { 
+      task: item.task,
+      completed: item.completed
+    });
+  }
+
+  vm.markAsComplete = (index) => {
+    console.log(index);
+    $timeout(() => {
+      vm.list[index].completed = true;
+    }, 800)
+  }
 
 }
 
 // Using the getter syntax to bring in our module and declaring the controller.
 angular
   .module("todoApp")
-  .controller("TodoControl", TodoControl);
+  .controller("TodoControl", ["$timeout", TodoControl]);

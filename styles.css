@@ -17,13 +17,17 @@ h4 {
 }
 
 ol {
-  width: 92%;
-  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px;
 }
 
-li {
+li p {
+  display: flex;
+  flex-direction: row;
   margin: 0;
   width: 100%;
+  flex-grow: 1;
 }
 
 a {
@@ -31,8 +35,27 @@ a {
   text-decoration: none;
 }
 
+i {
+  display: flex;
+}
+
 .align-right {
   float: right;
+}
+
+.input-invis {
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px inset rgba(0,0,0,0);
+  background: transparent;
+  width: 100%;
+  padding: 3px;
+  margin: 3px;
+  transition: all .25s;
+}
+
+.input-invis:hover {
+  border: 1px inset rgba(0,0,0,0.25);
 }
 
 .input-box {
@@ -65,6 +88,7 @@ a {
   border: 1px solid #ff69b4;
   border-radius: 5px;
   padding: 3px 10px;
+  width: 100px;
   color: #ff69b4;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
